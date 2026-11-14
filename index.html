@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Watermark Consultants' maritime vessel portfolio.">
+  <title>Vessels | Watermark Consultants</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="database.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <a class="brand" href="#home" aria-label="Watermark Consultants, home">
+      <span class="brand-symbol" aria-hidden="true">W<span>~</span></span>
+      <span>WATERMARK <small>CONSULTANTS INC.</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#vessels">Vessels</a>
+      <a href="#expertise">Expertise</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-content container">
+        <span class="eyebrow">Independent marine engineering consultancy</span>
+        <h1 id="heroTitle">Engineering confidence.<br><em>Across every ocean.</em></h1>
+        <p>Independent experience in vessel construction, engineering, and delivery.</p>
+        <a class="button button-primary" href="#vessels">Explore our fleet <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="fleet-section container" id="vessels" aria-labelledby="fleetTitle">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow dark">Vessel portfolio</span>
+          <h2 id="fleetTitle">Explore our fleet</h2>
+        </div>
+        <p>Browse vessel records and photographs from our archive.</p>
+      </div>
+
+      <div class="filters" role="search" aria-label="Search and filter vessels">
+        <label class="search-field">
+          <span class="sr-only">Search vessel records</span>
+          <input id="searchInput" type="search" placeholder="Search vessels, clients, or shipyards…">
+        </label>
+        <label>
+          <span class="sr-only">Vessel category</span>
+          <select id="categoryFilter"><option value="">All categories</option></select>
+        </label>
+        <label>
+          <span class="sr-only">Delivery status</span>
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option value="delivered">Delivered</option>
+            <option value="construction">Under construction</option>
+          </select>
+        </label>
+        <label>
+          <span class="sr-only">Sort order</span>
+          <select id="sortSelect">
+            <option value="recent">Newest records</option>
+            <option value="name">Name A–Z</option>
+            <option value="date">Delivery date</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="result-count" id="resultCount" aria-live="polite">Loading vessels…</p>
+      <div class="vessel-grid" id="vesselGrid"></div>
+      <p id="emptyState" class="empty-message" hidden>No matching vessels. Try changing your filters.</p>
+      <div class="load-area"><button class="button button-secondary" id="loadMore" type="button" hidden>Load more vessels ↓</button></div>
+      <p id="loadError" class="error-message" role="alert" hidden></p>
+    </section>
+
+    <section class="expertise-section" id="expertise" aria-labelledby="expertiseTitle">
+      <div class="container">
+        <span class="eyebrow dark">What we do</span>
+        <h2 id="expertiseTitle">Insight at every stage.</h2>
+        <div class="expertise-grid">
+          <article><h3>Technical development</h3><p>Specifications, tenders, and preliminary vessel design.</p></article>
+          <article><h3>Plan approval</h3><p>Technical review, design optimization, and builder negotiations.</p></article>
+          <article><h3>Project management</h3><p>On-site oversight through construction and delivery.</p></article>
+          <article><h3>Technical advisory</h3><p>Shipyard assessments, bid evaluation, and vessel conversions.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">WATERMARK CONSULTANTS INC. <span>Marine engineering &amp; newbuilding consultancy</span></div></footer>
+
+  <dialog id="vesselDialog" class="vessel-dialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="dialogClose" type="button" aria-label="Close vessel details">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+</body>
+</html>
